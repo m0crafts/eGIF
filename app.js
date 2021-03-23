@@ -63,7 +63,6 @@ function callback() {
 				const response = giphy.getTrendingGifs(offset);
 				response.then((data) => {
 					const gifs = data.data;
-					console.log(gifs);
 					gifs.forEach((gif, index) => {
 						if (receivedIds.includes(gif.id)) {
 							gifs.splice(index, 1);
