@@ -3,7 +3,7 @@ class UI {
 		let output = '';
 		let username = '';
 		let avatar = '';
-		const defaultImage = './img/default-image.png';
+		const defaultImage = '../img/default-image.png';
 		gifs.forEach(function (gif) {
 			const uri = gif.images.original.webp;
 			if (gif.username !== '') {
