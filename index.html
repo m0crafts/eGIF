@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
+		<title>eGIF | Search All GIFs In The World!</title>
+	</head>
+	<body>
+		<div class="container">
+			<header id="main-header">
+				<div id="flex-container">
+					<div id="logo-container">
+						<img
+							id="logo"
+							src="/img/animated/Cute-Animated-Logo-Design-Inspiration-2019-18.gif"
+							alt=""
+						/>
+					</div>
+
+					<div id="search-input-container">
+						<input id="search-input" type="text" placeholder="Search All GIFs In The World!" />
+					</div>
+
+					<div id="search-btn">
+						<a href="#"><i class="fas fa-search"></i></a>
+					</div>
+				</div>
+			</header>
+			<main id="main">
+				<div class="page-header">
+					<span id="trending-icon"><i class="fas fa-chart-line"></i></span>
+					<h5>Trending GIFs</h5>
+				</div>
+				<!-- GIFs Section -->
+				<section id="gifs"></section>
+				<center>
+					<div id="loader">
+						<div class="yellow"></div>
+						<div class="red"></div>
+						<div class="blue"></div>
+						<div class="violet"></div>
+					</div>
+				</center>
+			</main>
+		</div>
+
+		<script src="https://kit.fontawesome.com/49f880beca.js" crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+			integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+			crossorigin="anonymous"
+		></script>
+		<script src="giphy.js"></script>
+		<script src="ui.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
