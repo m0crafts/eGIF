@@ -23,7 +23,7 @@ window.pageCheck = (function () {
 				ui.hideLoader();
 			}
 		}, 1500);
-	} else if (currentActivePage === '/dist/gif.html') {
+	} else if (currentActivePage === '/dist/gif.html' || '/gif.html') {
 		clickedGifID = window.location.search.split('?id=')[1];
 
 		giphy
