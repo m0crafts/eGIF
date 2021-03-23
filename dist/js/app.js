@@ -6,7 +6,7 @@ let receivedIds = [];
 let clickedGifID = null;
 let removedDups = [];
 window.pageCheck = (function () {
-	if (currentActivePage === '/index.html') {
+	if (currentActivePage === '/dist/index.html') {
 		ui.showLoader();
 		setTimeout(() => {
 			try {
@@ -23,7 +23,7 @@ window.pageCheck = (function () {
 				ui.hideLoader();
 			}
 		}, 1500);
-	} else if (currentActivePage === '/gif.html') {
+	} else if (currentActivePage === '/dist//gif.html') {
 		clickedGifID = window.location.search.split('?id=')[1];
 
 		giphy
@@ -46,7 +46,7 @@ function clickEvent(e) {
 	if (e.target.classList.contains('gif')) {
 		const gifID = e.target.getAttribute('data-id');
 		console.log(gifID);
-		window.open(`/gif.html?id=${gifID}`, '_self');
+		window.open(`/dist/gif.html?id=${gifID}`, '_self');
 	} else {
 		console.log(e.target);
 	}
