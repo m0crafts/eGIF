@@ -6,7 +6,7 @@ let receivedIds = [];
 let clickedGifID = null;
 let removedDups = [];
 window.pageCheck = (function () {
-	if (currentActivePage === '/dist/index.html') {
+	if (currentActivePage === '/dist/index.html' || currentActivePage === '/') {
 		ui.showLoader();
 		setTimeout(() => {
 			try {
@@ -23,7 +23,7 @@ window.pageCheck = (function () {
 				ui.hideLoader();
 			}
 		}, 1500);
-	} else if (currentActivePage === '/dist//gif.html') {
+	} else if (currentActivePage === '/dist/gif.html') {
 		clickedGifID = window.location.search.split('?id=')[1];
 
 		giphy
