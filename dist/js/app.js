@@ -1,5 +1,6 @@
 const giphy = new Giphy();
 const ui = new UI();
+
 const currentActivePage = window.location.pathname;
 let offset = 0;
 let receivedIds = [];
