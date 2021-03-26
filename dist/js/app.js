@@ -60,7 +60,7 @@ window.pageCheck = (function () {
 				console.log(error);
 			}
 		} else {
-			window.open(`/dist/index.html`, '_self');
+			window.open(`/index.html`, '_self');
 		}
 	}
 })();
@@ -91,7 +91,7 @@ function clickEvent(e) {
 			window.open(`/search.html?q=${finalString}`, '_self');
 		} else {
 			//Load home page
-			window.open(`/index.html`, '_self');
+			window.open(`/`, '_self');
 		}
 	} else if (e.target.id === 'prev-btn') {
 		dataPageAttr = elChannelsContainer.getAttribute('data-page');
