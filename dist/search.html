@@ -11,7 +11,7 @@
 		/>
 		<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="style.css" />
-		<title>Search, Discover, Share, and Create Animated GIFs | GIPHY</title>
+		<title>eGIF | Search All GIFs In The World!</title>
 	</head>
 	<body>
 		<div class="container">
@@ -34,13 +34,39 @@
 					</div>
 				</div>
 			</header>
-			<div id="big-container">
-				<main id="gif-section"></main>
-				<aside id="related-section">
-					<h6>Related GIFs</h6>
-					<div id="related-gif-list"></div>
-				</aside>
-			</div>
+			<main id="main">
+				<section class="page-header2">
+					<h1 id="search-display"></h1>
+					<span data-gif-count="0" id="number-display">&nbsp;GIFs</span>
+				</section>
+				<section class="channel-results">
+					<div class="number-of-channels-container">
+						<h4 data-channel-count="0" id="number-of-channels">&nbsp;channels</h4>
+						<div id="carousel-buttons" data-total="0" class="carousel-buttons">
+							<span id="prev-btn">
+								<i class="fas fa-chevron-left"></i>
+							</span>
+							<span id="next-btn">
+								<i class="fas fa-chevron-right"></i>
+							</span>
+						</div>
+					</div>
+					<div id="channels-container" data-page="0"></div>
+				</section>
+				<div class="page-header-styled">
+					<h5>GIFs</h5>
+				</div>
+				<!-- GIFs Section -->
+				<section id="searched-gifs"></section>
+				<center>
+					<div id="loader">
+						<div class="yellow"></div>
+						<div class="red"></div>
+						<div class="blue"></div>
+						<div class="violet"></div>
+					</div>
+				</center>
+			</main>
 		</div>
 
 		<script src="https://kit.fontawesome.com/49f880beca.js" crossorigin="anonymous"></script>

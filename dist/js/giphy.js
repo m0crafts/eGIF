@@ -1,8 +1,9 @@
 class Giphy {
 	constructor() {
 		this.key = 'm4zkfIxMn0AzwPvD6tcIhkVCdJjzUGY6';
-		this.limit = 10;
+		this.limit = 25;
 		this.rating = 'g';
+		this.lang = 'en';
 	}
 
 	async getTrendingGifs(offset) {
@@ -17,8 +18,10 @@ class Giphy {
 		return gifData.json();
 	}
 
-	// hasMoreGifs(page, total) {
-	// 	const startIndex = (page - 1) * this.limit + 1;
-	// 	return total === 0 || startIndex < total;
-	// }
+	async getGifs(query, offset, limit) {
+		const res = await fetch(
+			`https://api.giphy.com/v1/gifs/search?api_key=${this.key}&q=${query}&limit=${limit}&offset=${offset}&rating=${this.rating}&lang=${this.lang}`,
+		);
+		return res.json();
+	}
 }

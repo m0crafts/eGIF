@@ -74,6 +74,9 @@ a:hover {
 	padding: 10px 15px;
 	background-color: #fff;
 }
+#search-btn a {
+	pointer-events: none;
+}
 #search-btn:hover {
 	background-color: #f3f3f3;
 	cursor: pointer;
@@ -93,7 +96,8 @@ a:hover {
 	margin-bottom: 1.5rem;
 }
 
-#gifs {
+#gifs,
+#searched-gifs {
 	column-count: 4;
 	display: inline-block;
 }
@@ -325,17 +329,17 @@ i {
 
 #loader .red {
 	background-color: #ff0062;
-	animation-delay: 0.1s;
+	animation-delay: 0.2s;
 }
 
 #loader .blue {
 	background-color: #00dbf9;
-	animation-delay: 0.2s;
+	animation-delay: 0.4s;
 }
 
 #loader .violet {
 	background-color: #da00f7;
-	animation-delay: 0.3s;
+	animation-delay: 0.6s;
 }
 
 @keyframes bouncey {
@@ -371,9 +375,161 @@ i {
 	width: 250px;
 }
 .related-gif-list img {
-	max-height: 250px;
+	/* max-height: 250px; */
 	width: 100%;
 }
 #related-section h6 {
 	margin-bottom: 1rem;
+}
+
+/* Search Page */
+.page-header2 {
+	display: flex;
+	align-items: baseline;
+	margin-bottom: 1.5rem;
+}
+#search-display {
+	text-transform: none;
+}
+#number-display {
+	color: rgb(166, 166, 166);
+	padding-left: 0.5rem;
+	text-transform: none;
+	vertical-align: sub;
+	font-size: 14px;
+	white-space: pre;
+	font-weight: 700;
+}
+
+#number-display::before {
+	content: attr(data-gif-count);
+}
+#number-of-channels::before {
+	content: attr(data-channel-count);
+}
+.channels-container::after {
+	content: attr(data-page);
+}
+.carousel-buttons::after {
+	content: attr(data-dir);
+}
+.channel-results {
+	margin-bottom: 32px;
+}
+.number-of-channels-container {
+	margin-bottom: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.number-of-channels {
+	color: rgb(255, 255, 255);
+	font-size: 17px;
+	font-weight: bold;
+	letter-spacing: 0.3px;
+}
+#channels-container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2rem;
+	justify-content: space-evenly;
+}
+
+.channel {
+	max-width: 210px;
+	margin-right: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	animation-name: fadeInBottom;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+@keyframes fadeInBottom {
+	from {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+	to {
+		opacity: 1;
+	}
+}
+.profile-img {
+	width: 50px;
+	height: 50px;
+	margin-right: 12px;
+	vertical-align: baseline;
+	object-fit: cover;
+}
+.channel-display-name {
+	color: rgb(219, 219, 219);
+}
+.channel-display-name:hover {
+	color: rgb(218, 165, 32);
+}
+.channel-username {
+	display: flex;
+	/* white-space: nowrap; */
+}
+.channel-username a {
+	transition: color 0.25s ease;
+	display: inline-block;
+	margin-left: -1px;
+	margin-right: 4px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	font-weight: 700;
+	color: rgb(166, 166, 166);
+}
+.channel-username a:hover {
+	color: rgb(218, 165, 32);
+}
+.verified-icon {
+	width: 14px;
+	height: 14px;
+	line-height: 0.9;
+}
+.carousel-buttons {
+	color: #fff;
+
+	height: 100%;
+	width: 36px;
+	height: 20px;
+	display: flex;
+	margin-left: 5px;
+	align-items: center;
+	justify-content: space-between;
+}
+.carousel-buttons::after {
+	content: attr('data-total');
+}
+#prev-btn,
+#next-btn {
+	background: rgb(218, 165, 32);
+	height: 20px;
+	font-size: 14px;
+	padding: 0 16px;
+	margin: 0 5px;
+}
+#prev-btn:hover,
+#next-btn:hover {
+	background: rgb(199, 151, 30);
+}
+
+.page-header-styled {
+	height: 38px;
+	width: 50px;
+	/* border-radius: 10px; */
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.page-header-styled h5 {
+	color: rgb(255, 255, 255);
+	font-size: 17px;
+	font-weight: bold;
+	letter-spacing: 0.3px;
 }

@@ -11,14 +11,15 @@ class Utilities {
 	// 	xhr.open('GET', url);
 	// 	xhr.send();
 	// }
-
+	constructor() {}
 	async saveFile(url, filename) {
 		await fetch(url)
 			.then((result) => result.blob())
 			.then((blob) => {
-				var a = document.getElementById('download-link');
+				const a = document.createElement('a');
 				a.href = window.URL.createObjectURL(blob); // xhr.response is a blob
 				a.download = filename; // Set the file name.
+				a.click();
 			})
 
 			.catch((err) => {
