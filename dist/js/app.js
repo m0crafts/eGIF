@@ -76,7 +76,7 @@ function clickEvent(e) {
 	if (e.target.classList.contains('gif')) {
 		const gifID = e.target.getAttribute('data-id');
 		console.log(gifID);
-		window.open(`/dist/gif.html?id=${gifID}`, '_self');
+		window.open(`/gif.html?id=${gifID}`, '_self');
 	} else if (e.target.id === 'search-btn') {
 		const query = searchInput.value.trim();
 
@@ -88,10 +88,10 @@ function clickEvent(e) {
 			});
 			finalString = _.trimEnd(finalString, '-');
 			console.warn(finalString);
-			window.open(`/dist/search.html?q=${finalString}`, '_self');
+			window.open(`/search.html?q=${finalString}`, '_self');
 		} else {
 			//Load home page
-			window.open(`/dist/index.html`, '_self');
+			window.open(`/index.html`, '_self');
 		}
 	} else if (e.target.id === 'prev-btn') {
 		dataPageAttr = elChannelsContainer.getAttribute('data-page');
