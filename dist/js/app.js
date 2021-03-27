@@ -11,9 +11,12 @@ let receivedIds = [];
 let clickedGifID = null;
 let query = null;
 let elChannelsContainer;
-
+const isLive = false;
+let homePageStr = isLive ? '/' : '/dist/index.html';
+let gifPageStr = isLive ? '/gif.html' : '/dist/gif.html';
+let searchPageStr = isLive ? '/search.html' : '/dist/search.html';
 window.pageCheck = (function () {
-	if (currentActivePage === '/dist/index.html' || currentActivePage === '/') {
+	if (currentActivePage === homePageStr) {
 		ui.showLoader();
 		let newOutput = [];
 		setTimeout(() => {
@@ -34,7 +37,7 @@ window.pageCheck = (function () {
 				ui.hideLoader();
 			}
 		}, 1500);
-	} else if (currentActivePage === '/dist/gif.html' || currentActivePage === '/gif.html') {
+	} else if (currentActivePage === gifPageStr) {
 		clickedGifID = window.location.search.split('?id=')[1];
 
 		giphy
@@ -45,7 +48,7 @@ window.pageCheck = (function () {
 			.catch((err) => {
 				console.log(err);
 			});
-	} else if (currentActivePage === '/dist/search.html' || currentActivePage === '/search.html') {
+	} else if (currentActivePage === searchPageStr) {
 		elChannelsContainer = document.getElementById('channels-container');
 		dataPageAttr = elChannelsContainer.getAttribute('data-page');
 		query = window.location.search.split('?q=')[1];
@@ -60,7 +63,7 @@ window.pageCheck = (function () {
 				console.log(error);
 			}
 		} else {
-			window.open(`/index.html`, '_self');
+			window.open(homePageStr, '_self');
 		}
 	}
 })();
@@ -76,7 +79,7 @@ function clickEvent(e) {
 	if (e.target.classList.contains('gif')) {
 		const gifID = e.target.getAttribute('data-id');
 		console.log(gifID);
-		window.open(`/gif.html?id=${gifID}`, '_self');
+		window.open(`${gifPageStr}?id=${gifID}`, '_self');
 	} else if (e.target.id === 'search-btn') {
 		const query = searchInput.value.trim();
 
@@ -88,10 +91,10 @@ function clickEvent(e) {
 			});
 			finalString = _.trimEnd(finalString, '-');
 			console.warn(finalString);
-			window.open(`/search.html?q=${finalString}`, '_self');
+			window.open(`${searchPageStr}?q=${finalString}`, '_self');
 		} else {
 			//Load home page
-			window.open(`/`, '_self');
+			window.open(homePageStr, '_self');
 		}
 	} else if (e.target.id === 'prev-btn') {
 		dataPageAttr = elChannelsContainer.getAttribute('data-page');
@@ -109,7 +112,7 @@ function clickEvent(e) {
 }
 
 function callback() {
-	if (currentActivePage === '/dist/index.html' || currentActivePage === '/') {
+	if (currentActivePage === homePageStr) {
 		const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
 		if (scrollTop + clientHeight >= scrollHeight - 20) {
@@ -138,7 +141,7 @@ function callback() {
 				}
 			}, 1500);
 		}
-	} else if (currentActivePage === '/dist/search.html' || currentActivePage === '/search.html') {
+	} else if (currentActivePage === searchPageStr) {
 		const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
 		if (scrollTop + clientHeight >= scrollHeight - 5) {
