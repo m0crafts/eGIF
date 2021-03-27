@@ -14,7 +14,7 @@ let elChannelsContainer;
 const isLive = true;
 let homePageStr = isLive ? '/' : '/dist/index.html';
 let gifPageStr = isLive ? '/gif.html' : '/dist/gif.html';
-let searchPageStr = '/dist/search.html';
+let searchPageStr = isLive ? '/search.html' : '/dist/search.html';
 window.pageCheck = (function () {
 	if (currentActivePage === homePageStr) {
 		ui.showLoader();
