@@ -91,7 +91,7 @@ class UI {
 
 		const gifShortURL = allData.data.bitly_url;
 		const urlEncoded = encodeURIComponent(gifShortURL);
-		const mygifURL = `https://vibrant-booth-0f7397.netlify.app//gif.html?id=${gifID}`;
+		const mygifURL = `https://vibrant-booth-0f7397.netlify.app/gif.html?id=${gifID}`;
 		const myUrlEncoded = encodeURIComponent(mygifURL);
 		const titleEncoded = encodeURIComponent(gifTitle);
 		if (allData.data.username !== '') {
