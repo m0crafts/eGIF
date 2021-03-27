@@ -53,6 +53,8 @@ a:hover {
 	top: 0;
 	z-index: 10;
 	background-color: #0e1d21;
+	max-width: 1300px;
+	margin: auto;
 	/* transition: background-color 0.2s ease; */
 }
 #flex-container {
@@ -218,13 +220,18 @@ a:hover {
 	border-color: rgb(218, 165, 32);
 }
 
+.big-flexer {
+	border-top: 0.2px solid rgba(255, 255, 255, 0.116);
+	border-bottom: 0.2px solid rgba(255, 255, 255, 0.116);
+	padding: 15px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .share-buttons {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	border-top: 0.2px solid rgba(255, 255, 255, 0.116);
-	border-bottom: 0.2px solid rgba(255, 255, 255, 0.116);
-	padding: 15px 0;
 }
 .share-buttons a {
 	margin-right: 1rem;
@@ -380,6 +387,21 @@ i {
 }
 #related-section h6 {
 	margin-bottom: 1rem;
+}
+#views-container {
+	color: rgb(166, 166, 166);
+	font-size: 0.9rem;
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+}
+#views-count {
+	white-space: nowrap;
+}
+#views-container i {
+	color: rgb(219, 181, 54);
+	font-size: 1.2rem;
 }
 
 /* Search Page */

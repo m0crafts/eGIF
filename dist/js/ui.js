@@ -17,14 +17,16 @@ class UI {
 				element.style.backgroundColor = 'rgb(218, 165, 32)';
 			}
 		};
+		// this.gifIds = [];
 	}
 	showGifs(gifs, string) {
 		let output = '';
 		let username = '';
 		let avatar = '';
-		let gifIds = [];
+
 		gifs.forEach(function (gif) {
 			const uri = gif.images.original.webp;
+
 			if (gif.username !== '') {
 				username = gif.user.display_name;
 				if (username.length >= 18) {
@@ -38,10 +40,10 @@ class UI {
 				avatar = './img/default-image.png';
 			}
 			// if (!_.includes(gifIds, gif.id) && gif.uri !== '') {
-			// 	gifIds.push(gif.id);
+			// this.gifIds.push(gif.id);
 			output = output.concat(`
 		<a href="gif.html?id=${gif.id}">
-      <figure data-id="${gif.id}" class="gif">
+      <figure data-id="${gif.id}" data-views="" class="gif">
 				<img src="${uri}" alt=""/>
 				
 				<div class="overlay">
@@ -76,13 +78,17 @@ class UI {
 		const gifSize = parseFloat(allData.data.images.original.webp_size / 1000)
 			.toFixed(2)
 			.toString();
-
+		console.log(allData);
 		const gifWidth = allData.data.images.original.width;
 		const gifHeight = allData.data.images.original.height;
 		const gifCreateTime = allData.data.import_datetime;
 		const gifFrames = allData.data.images.original.frames;
 		const gifUploader = allData.data.user;
 		const gifID = allData.data.id;
+		let viewsCount =
+			localStorage.getItem(gifID) !== null ? JSON.parse(localStorage.getItem(gifID)) : 0;
+		console.log(viewsCount);
+
 		const gifShortURL = allData.data.bitly_url;
 		const urlEncoded = encodeURIComponent(gifShortURL);
 		const titleEncoded = encodeURIComponent(gifTitle);
@@ -125,16 +131,21 @@ class UI {
 								</a>
 							</div>
 						</div>
-				
-						<div class="share-buttons">
-							<a id="facebook-btn" href="https://www.facebook.com/sharer.php?u=${urlEncoded}" target='_blank' class="share-button"><i class="fab fa-facebook-square fa-2x"></i></a>
-							<a id="twitter-btn" target='_blank' href="https://twitter.com/intent/tweet?url=${urlEncoded}&text=${titleEncoded}" class="share-button"><i class="fab fa-twitter-square fa-2x"></i></a>
-							<a id="reddit-btn" target='_blank' href="https://www.reddit.com/submit?url=${urlEncoded}&amp;title=${titleEncoded}&amp;video_poster_url=${urlEncoded}" class="share-button"><i class="fab fa-reddit-square fa-2x"></i></a>
-							<a id="tumblr-btn" target='_blank' href="http://tumblr.com/widgets/share/tool?canonicalUrl=${urlEncoded}" class="share-button"><i class="fab fa-tumblr-square fa-2x"></i></a>
-							<span id="copy-btn" class="copy-button-container">
-								<div class="Tooltip"><span id="popup-text" class="content">Copy link to clipboard.</span></div>
-								<img src="https://tenor.com/assets/img/icons/link.svg" alt="" />
-							</span>
+						<div class='big-flexer'>
+							<div class="share-buttons">
+								<a id="facebook-btn" href="https://www.facebook.com/sharer.php?u=${urlEncoded}" target='_blank' class="share-button"><i class="fab fa-facebook-square fa-2x"></i></a>
+								<a id="twitter-btn" target='_blank' href="https://twitter.com/intent/tweet?url=${urlEncoded}&text=${titleEncoded}" class="share-button"><i class="fab fa-twitter-square fa-2x"></i></a>
+								<a id="reddit-btn" target='_blank' href="https://www.reddit.com/submit?url=${urlEncoded}&amp;title=${titleEncoded}&amp;video_poster_url=${urlEncoded}" class="share-button"><i class="fab fa-reddit-square fa-2x"></i></a>
+								<a id="tumblr-btn" target='_blank' href="http://tumblr.com/widgets/share/tool?canonicalUrl=${urlEncoded}" class="share-button"><i class="fab fa-tumblr-square fa-2x"></i></a>
+								<span id="copy-btn" class="copy-button-container">
+									<div class="Tooltip"><span id="popup-text" class="content">Copy link to clipboard.</span></div>
+									<img src="https://tenor.com/assets/img/icons/link.svg" alt="" />
+								</span>
+							</div>
+							<div id="views-container">
+								<i class="fas fa-eye"></i>
+								<span id="views-count" >&nbsp;${viewsCount}&nbsp;Views</span>
+								</div>
 						</div>
 						<div class="gif-details">
 							<h3>Details</h3>
@@ -148,7 +159,8 @@ class UI {
 					</div>
 		
 		`;
-
+		viewsCount++;
+		localStorage.setItem(gifID, viewsCount);
 		let relatedOutput = [];
 		let totalHeight = 0;
 		console.log(allData);
