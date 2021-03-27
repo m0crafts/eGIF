@@ -13,8 +13,8 @@ let query = null;
 let elChannelsContainer;
 const isLive = true;
 let homePageStr = isLive ? '/' : '/dist/index.html';
-let gifPageStr = isLive ? '/gif.html' : '/dist/gif.html';
-let searchPageStr = isLive ? '/search.html' : '/dist/search.html';
+let gifPageStr = isLive ? '/dist/gif.html' : '/dist/gif.html';
+let searchPageStr = isLive ? '/dist/search.html' : '/dist/search.html';
 window.pageCheck = (function () {
 	if (currentActivePage === homePageStr) {
 		ui.showLoader();
