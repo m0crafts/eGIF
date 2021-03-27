@@ -71,9 +71,18 @@ window.pageCheck = (function () {
 })();
 
 document.addEventListener('click', clickEvent);
-// document.addEventListener('keypress', )
 window.addEventListener('scroll', _.throttle(callback, 1500), {
 	passive: true,
+});
+
+searchInput.addEventListener('keyup', function (event) {
+	// Number 13 is the "Enter" key on the keyboard
+	if (event.key === 13 || event.keyCode === 13) {
+		// Cancel the default action, if needed
+		event.preventDefault();
+		// Trigger the button element with a click
+		searchBtn.click();
+	}
 });
 
 function clickEvent(e) {
