@@ -91,7 +91,7 @@ function clickEvent(e) {
 			});
 			finalString = _.trimEnd(finalString, '-');
 			console.warn(finalString);
-			window.open(`${searchPageStr}?q=${finalString}`, '_self');
+			window.open(`/dist/search.html?q=${finalString}`, '_self');
 		} else {
 			//Load home page
 			window.open(homePageStr, '_self');
