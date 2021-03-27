@@ -43,7 +43,7 @@ class UI {
 			// this.gifIds.push(gif.id);
 			output = output.concat(`
 		<a href="gif.html?id=${gif.id}">
-      <figure data-id="${gif.id}" data-views="" class="gif">
+      <figure data-id="${gif.id}" class="gif">
 				<img src="${uri}" alt=""/>
 				
 				<div class="overlay">
@@ -91,6 +91,8 @@ class UI {
 
 		const gifShortURL = allData.data.bitly_url;
 		const urlEncoded = encodeURIComponent(gifShortURL);
+		const mygifURL = `https://vibrant-booth-0f7397.netlify.app//gif.html?id=${gifID}`;
+		const myUrlEncoded = encodeURIComponent(mygifURL);
 		const titleEncoded = encodeURIComponent(gifTitle);
 		if (allData.data.username !== '') {
 			username = gifUploader.display_name;
@@ -133,10 +135,10 @@ class UI {
 						</div>
 						<div class='big-flexer'>
 							<div class="share-buttons">
-								<a id="facebook-btn" href="https://www.facebook.com/sharer.php?u=${urlEncoded}" target='_blank' class="share-button"><i class="fab fa-facebook-square fa-2x"></i></a>
-								<a id="twitter-btn" target='_blank' href="https://twitter.com/intent/tweet?url=${urlEncoded}&text=${titleEncoded}" class="share-button"><i class="fab fa-twitter-square fa-2x"></i></a>
-								<a id="reddit-btn" target='_blank' href="https://www.reddit.com/submit?url=${urlEncoded}&amp;title=${titleEncoded}&amp;video_poster_url=${urlEncoded}" class="share-button"><i class="fab fa-reddit-square fa-2x"></i></a>
-								<a id="tumblr-btn" target='_blank' href="http://tumblr.com/widgets/share/tool?canonicalUrl=${urlEncoded}" class="share-button"><i class="fab fa-tumblr-square fa-2x"></i></a>
+								<a id="facebook-btn" href="https://www.facebook.com/sharer.php?u=${myUrlEncoded}" target='_blank' class="share-button"><i class="fab fa-facebook-square fa-2x"></i></a>
+								<a id="twitter-btn" target='_blank' href="https://twitter.com/intent/tweet?url=${myUrlEncoded}&text=${titleEncoded}" class="share-button"><i class="fab fa-twitter-square fa-2x"></i></a>
+								<a id="reddit-btn" target='_blank' href="https://www.reddit.com/submit?url=${myUrlEncoded}&amp;title=${titleEncoded}&amp;video_poster_url=${myUrlEncoded}" class="share-button"><i class="fab fa-reddit-square fa-2x"></i></a>
+								<a id="tumblr-btn" target='_blank' href="http://tumblr.com/widgets/share/tool?canonicalUrl=${myUrlEncoded}" class="share-button"><i class="fab fa-tumblr-square fa-2x"></i></a>
 								<span id="copy-btn" class="copy-button-container">
 									<div class="Tooltip"><span id="popup-text" class="content">Copy link to clipboard.</span></div>
 									<img src="https://tenor.com/assets/img/icons/link.svg" alt="" />
@@ -203,7 +205,7 @@ class UI {
 				popup.innerText = 'Copy link to clipboard.';
 			}, 1000);
 
-			utilities.copyToClipboard(gifShortURL);
+			utilities.copyToClipboard(mygifURL);
 		};
 		username = '';
 		avatar = '';

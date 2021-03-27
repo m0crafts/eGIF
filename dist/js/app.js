@@ -11,7 +11,7 @@ let receivedIds = [];
 let clickedGifID = null;
 let query = null;
 let elChannelsContainer;
-const isLive = true;
+const isLive = false;
 let homePageStr = isLive ? '/' : '/dist/index.html';
 let gifPageStr = isLive ? '/gif.html' : '/dist/gif.html';
 let searchPageStr = isLive ? '/search.html' : '/dist/search.html';
@@ -81,8 +81,6 @@ function clickEvent(e) {
 	if (e.target.classList.contains('gif')) {
 		const gifID = e.target.getAttribute('data-id');
 		console.log(gifID);
-		const gifViewsCount = e.target.getAttribute('data-views');
-		console.log(gifViewsCount);
 		window.open(`${gifPageStr}?id=${gifID}`, '_self');
 	} else if (e.target.id === 'search-btn') {
 		const query = searchInput.value.trim();
